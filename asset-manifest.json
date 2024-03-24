@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/camperok/static/js/main.c4d89b52.js",
+    "static/js/288.72dbfe02.chunk.js": "/camperok/static/js/288.72dbfe02.chunk.js",
+    "static/js/570.f141d252.chunk.js": "/camperok/static/js/570.f141d252.chunk.js",
+    "static/js/518.68e92944.chunk.js": "/camperok/static/js/518.68e92944.chunk.js",
+    "static/js/402.8c09909a.chunk.js": "/camperok/static/js/402.8c09909a.chunk.js",
+    "index.html": "/camperok/index.html",
+    "main.c4d89b52.js.map": "/camperok/static/js/main.c4d89b52.js.map",
+    "288.72dbfe02.chunk.js.map": "/camperok/static/js/288.72dbfe02.chunk.js.map",
+    "570.f141d252.chunk.js.map": "/camperok/static/js/570.f141d252.chunk.js.map",
+    "518.68e92944.chunk.js.map": "/camperok/static/js/518.68e92944.chunk.js.map",
+    "402.8c09909a.chunk.js.map": "/camperok/static/js/402.8c09909a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c4d89b52.js"
+  ]
+}
