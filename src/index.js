@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <ChakraProvider theme={theme} resetCSS>
-        <BrowserRouter basename="/test-project">
+        <BrowserRouter basename="/camperok">
           <PersistGate
-            loading={<Spinner variant="" size="xl" />}
+            loading={<Spinner variant="bold" size="xl" />}
             persistor={persistor}
           >
             <App />

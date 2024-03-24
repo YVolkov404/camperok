@@ -1,21 +1,18 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const instance = axios.create({
-  baseURL: 'https://659f38755023b02bfe895970.mockapi.io/',
-  headers: { 'content-type': 'application/json' },
-});
-
-const url = new URL('https://659f38755023b02bfe895970.mockapi.io/');
-url.searchParams.append('page', 1);
-url.searchParams.append('limit', 4);
+axios.defaults.baseURL = `https://659f38755023b02bfe895970.mockapi.io`;
 
 export const getOffers = createAsyncThunk(
-  'adverts/getOffers',
+  'offers/getOffersResponse',
   async (_, thunkAPI) => {
     try {
-      const response = await instance.get(url, 'adverts/');
+      const response = await axios.get(`/adverts`);
       if (response.ok) {
+        axios.url.searchParams.append('page', 1);
+        axios.url.searchParams.append('limit', 4);
+
+        console.log(response);
         return response.data;
       }
     } catch (e) {
@@ -25,13 +22,12 @@ export const getOffers = createAsyncThunk(
 );
 
 export const getOffersByDetails = createAsyncThunk(
-  'adverts/getOffersByDetails',
-  async (vehicle, thunkAPI) => {
+  '/offers/getOffersByDetails',
+  async (query, thunkAPI) => {
     try {
-      const response = await instance.get(
-        `adverts/details/${vehicle}`,
-        vehicle
-      );
+      const response = await axios.get(`/adverts/details/${query}`, {
+        queryData: JSON.stringify(query),
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

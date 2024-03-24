@@ -5,14 +5,14 @@ import {
   CardFooter,
   Image,
 } from '@chakra-ui/react';
-import { useOfferData } from 'redux/selectors';
+import { useOfferCart } from 'redux/selectors';
 
 export const BasicCard = () => {
-  const { offer } = useOfferData;
+  const { gallery } = useOfferCart;
 
   return (
     <Card>
-      <Image objectFit="cover" src={`${offer.gallery}`} />
+      <Image objectFit="cover" src={gallery} />
       <CardHeader></CardHeader>
       <CardBody></CardBody>
       <CardFooter></CardFooter>

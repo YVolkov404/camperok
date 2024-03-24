@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -11,18 +11,25 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { catalog } from '../redux/slice';
+import { filteredQuery } from './filter';
+
+const rootReducer = combineReducers({
+  offers: catalog,
+  search: filteredQuery,
+});
 
 const persistConfig = {
   key: 'offer',
-  storage: storage,
-  whitelist: ['_id', 'filteredOffers'],
+  storage,
+  whitelist: ['offers', 'search'],
   blacklist: ['chakra'],
 };
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-  reducer: {
-    offer: persistReducer(persistConfig, catalog),
-  },
+  reducer: persistedReducer,
+
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

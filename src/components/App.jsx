@@ -23,10 +23,10 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />}>
-          <Route path="/modal:id">
+          {/* <Route path="modal:id">
             <Route path="review" />
             <Route path="features" />
-          </Route>
+          </Route> */}
         </Route>
         <Route path="/favorites" element={<FavoritesPage />} />
       </Route>
