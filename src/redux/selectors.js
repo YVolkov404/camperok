@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 
-const selectOffer = state => state.offer;
+const selectOffer = state => state.offer.props;
 const selectDetails = state => state.offer.details;
 const selectIsLoading = state => state.offer.isLoading;
 const selectIsErrors = state => state.offer.isError;
 
-export const useOfferCart = () => {
+export const useData = () => {
   const offercart = useSelector(selectOffer);
   const details = useSelector(selectDetails);
   const loading = useSelector(selectIsLoading);
@@ -18,3 +18,5 @@ export const useOfferCart = () => {
     error,
   };
 };
+
+

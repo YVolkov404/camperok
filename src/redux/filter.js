@@ -1,22 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { useOfferCart } from './selectors';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { offer, details } from '../redux/selectors';
 
 let vehicles = {
-  equipment: useOfferCart.details,
-  type: useOfferCart.details,
+  equipment: offer,
+  type: details,
 };
+
+console.log(vehicles);
 
 const filterSlice = createSlice({
   name: 'filter',
   initialState: vehicles,
   reducers: {
     getQuery(state, action) {
-      state.vehicles.filter(
-        vehicle => vehicle.details === action.payload.details
-      );
+      state.vehicles.filter(vehicle => `${vehicle.id}` === action.payload.id);
     },
   },
 });
+
+export const filteredOffer = createSelector([filterSlice], filter =>
+  filteredOffer.filter(prop => prop.iD.includes(filter.toLowerCase()))
+);
 
 //-------------------------------------------------------
 export const { getQuery } = filterSlice.actions;
