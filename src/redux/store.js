@@ -11,17 +11,16 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { catalog } from '../redux/slice';
-import { filteredQuery } from './filter';
+import { filteredQuery } from '../redux/filter';
 
 const rootReducer = combineReducers({
-  offers: catalog,
-  search: filteredQuery,
+  offer: catalog,
+  filter: filteredQuery,
 });
 
 const persistConfig = {
   key: 'offer',
   storage,
-  whitelist: ['offers', 'search'],
   blacklist: ['chakra'],
 };
 

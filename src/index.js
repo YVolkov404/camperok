@@ -6,13 +6,15 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { App } from './components/App';
 import { store, persistor } from '../src/redux/store.js';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { Spinner } from '@chakra-ui/react';
+
+import theme from 'theme/Theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ChakraProvider theme={theme} resetCSS>
+    <ChakraProvider theme={theme} resetCSS>
+      <Provider store={store}>
         <BrowserRouter basename="/camperok">
           <PersistGate
             loading={<Spinner variant="bold" size="xl" />}
@@ -21,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <App />
           </PersistGate>
         </BrowserRouter>
-      </ChakraProvider>
-    </Provider>
+      </Provider>
+    </ChakraProvider>
   </React.StrictMode>
 );

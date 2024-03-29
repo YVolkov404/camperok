@@ -1,11 +1,7 @@
 import { Favorites } from '../components/Favorites';
 
 function FavoritesPage() {
-  return (
-    <>
-      <Favorites />
-    </>
-  );
+  return <Favorites />;
 }
 
 export default FavoritesPage;

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
-    <Container as="section" centerContent>
+    <Container centerContent>
       <Suspense fallback={<Spinner variant="bold" size="xl" color="" />}>
         <Outlet />
       </Suspense>

@@ -2,7 +2,7 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { useDispatch } from 'react-redux';
-import { getOffers } from 'services/api';
+import { getOffersResponse } from 'services/api';
 
 //------------------------------------------
 
@@ -15,7 +15,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOffers());
+    dispatch(getOffersResponse());
   }, [dispatch]);
 
   return (

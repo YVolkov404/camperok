@@ -1,18 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
-import { getOffers, getOffersByDetails } from 'services/api';
-import { selectedFilter } from './filter';
+import { getOffersResponse } from 'services/api';
 
 const initialState = {
-  id: '',
-  name: '',
-  price: Number(),
-  rating: Number(),
-  reviews: [Number()],
-  location: '',
-  description: '',
-  details: {},
-  gallery: [],
   isLoading: true,
   isError: null,
 };
@@ -32,21 +21,19 @@ const catalogSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(getOffers.pending, handlePending)
-      .addCase(getOffers.fulfilled, (state, action) => {
+      .addCase(getOffersResponse.pending, handlePending)
+      .addCase(getOffersResponse.fulfilled, (state, action) => {
         state.offer = action.payload;
         state.isError = null;
       })
-      .addCase(getOffers.rejected, handleRejected)
+      .addCase(getOffersResponse.rejected, handleRejected);
 
-      .addCase(getOffersByDetails.pending, state => {
-        state.queryData = useSelector(selectedFilter);
-      })
-      .addCase(getOffersByDetails.fulfilled, (state, action) => {
-        state.filter = action.payload;
-        state.isError = null;
-      })
-      .addCase(getOffersByDetails.rejected, handleRejected);
+    // .addCase(getOffersByDetails.pending, handlePending)
+    // .addCase(getOffersByDetails.fulfilled, (state, action) => {
+    //   state.offer = action.payload;
+    //   state.isError = null;
+    // })
+    // .addCase(getOffersByDetails.rejected, handleRejected);
   },
 });
 

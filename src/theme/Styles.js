@@ -4,21 +4,16 @@ const styles = extendTheme({
   styles: {
     global: {
       // styles for the `body`
-      body: {
+      'html, body': {
         fontFamily: 'Inter, sans-serif',
         fontOpticalSizing: 'auto',
         fontSize: '16px',
         fontStyle: 'normal',
-        color: '#101828',
       },
       // styles for nested tags
       'div, h1, h2, p, label, link': {
         p: '0',
         m: '0',
-      },
-      section: {
-        w: '1440px',
-        h: 'auto',
       },
       a: {
         display: 'inline-flex',
