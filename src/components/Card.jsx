@@ -11,16 +11,16 @@ import {
   HStack,
   VStack,
   Text,
-  Box,
   Heading,
+  IconButton,
 } from '@chakra-ui/react';
-import { useData } from '../redux/selectors';
+
 import { Icon } from '@iconify/react';
+import { filteredOffers } from 'hooks/FilterHook';
+import { useSelector } from 'react-redux';
 
-export const BasicCard = () => {
-  const { offercart } = useData();
-
-  console.log(offercart);
+export const CardStack = () => {
+  const offercart = useSelector(filteredOffers);
 
   return (
     <VStack spacing={8}>
@@ -58,13 +58,17 @@ export const BasicCard = () => {
                               maximumFractionDigits: '2',
                             }).format(price)}
                           </Text>
-                          <Button
-                            leftIcon={
-                              <Icon icon="mdi:heart-outline" fontSize={24} />
+                          <IconButton
+                            icon={
+                              <Icon
+                                icon="mdi:heart-outline"
+                                fontSize={24}
+                                color="#e44848"
+                              />
                             }
-                            iconSpacing="0"
                             size="xs"
                             variant="unstyled"
+                            isActive
                           />
                         </HStack>
                       </HStack>

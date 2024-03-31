@@ -7,7 +7,9 @@ import { Card } from './components/Card';
 import { Container } from './components/Container';
 import { Heading } from './components/Heading';
 import { Text } from './components/Text';
-import { Button } from '@chakra-ui/react';
+import { Button } from './components/Button';
+import { Input } from './components/Input';
+import { FormLabel } from './components/FormLabel';
 
 // Foundational style overrides
 // import borders from '../theme/foundations/borders';
@@ -25,6 +27,8 @@ const theme = extendTheme({
     Heading,
     Text,
     Button,
+    Input,
+    FormLabel,
     // Other components go here
   },
 });

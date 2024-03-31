@@ -1,16 +1,18 @@
-import { HStack, VStack } from '@chakra-ui/react';
+import { Stack, VStack } from '@chakra-ui/react';
 import { ModalLayout } from './Modal/ModalLayout';
-import { BasicCard } from './Card';
+import { CardStack } from './Card';
+import { SearchBar } from './SearchBar';
 
 export const Catalog = () => {
   return (
     <>
-      <HStack spacing={16} justify="space-between">
-        <VStack w={360}></VStack>
+      <Stack flexDir="row" spacing={16}>
         <VStack>
-          <BasicCard />
+          <SearchBar />
         </VStack>
-      </HStack>
+
+        <CardStack />
+      </Stack>
       <ModalLayout />
     </>
   );

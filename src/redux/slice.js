@@ -27,13 +27,6 @@ const catalogSlice = createSlice({
         state.isError = null;
       })
       .addCase(getOffersResponse.rejected, handleRejected);
-
-    // .addCase(getOffersByDetails.pending, handlePending)
-    // .addCase(getOffersByDetails.fulfilled, (state, action) => {
-    //   state.offer = action.payload;
-    //   state.isError = null;
-    // })
-    // .addCase(getOffersByDetails.rejected, handleRejected);
   },
 });
 

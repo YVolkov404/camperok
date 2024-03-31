@@ -21,7 +21,6 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'offer',
   storage,
-  blacklist: ['chakra'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

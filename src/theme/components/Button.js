@@ -7,6 +7,10 @@ const unstyled = defineStyle({
   lineHeight: 'normal',
   m: '0',
   p: '0',
+
+  _active: {
+    color: '#e44848',
+  },
 });
 
 const variants = {

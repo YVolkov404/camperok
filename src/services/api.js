@@ -26,6 +26,18 @@ export const getOffersResponse = createAsyncThunk(
   }
 );
 
+export const getOffersByLocation = createAsyncThunk(
+  'offer/getOffersByLocation',
+  async (location, thunkAPI) => {
+    try {
+      const response = await axios.get(`/adverts/${location}`, location);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const getOffersByDetails = createAsyncThunk(
   'offer/getOffersByDetails',
   async (query, thunkAPI) => {
