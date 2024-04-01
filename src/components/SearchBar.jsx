@@ -6,15 +6,8 @@ import {
   InputLeftElement,
 } from '@chakra-ui/react';
 import { Icon } from '@iconify/react';
-import { useDispatch } from 'react-redux';
-import { getFilter } from '../redux/filter';
-import { useData } from '../redux/selectors';
 
-export const SearchBar = () => {
-  const { filter } = useData;
-  const dispatch = useDispatch();
-  const handleChange = e => dispatch(getFilter(e.target.value));
-
+export const SearchBar = ({ filter, handleChange }) => {
   return (
     <FormControl as="form">
       <FormLabel>Location</FormLabel>
@@ -23,7 +16,7 @@ export const SearchBar = () => {
           <Icon icon="ph:map-pin" height={20} color="rgba(16, 24, 40, 0.6)" />
         </InputLeftElement>
         <Input
-          name="location"
+          name="filter"
           type="text"
           value={filter}
           onChange={handleChange}

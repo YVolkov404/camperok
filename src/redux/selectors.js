@@ -10,12 +10,12 @@ export const useData = () => {
   const offercart = useSelector(selectOffer);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectIsErrors);
-  const filter = useSelector(selectFilter);
+  // const filter = useSelector(selectFilter);
 
   return {
     offercart,
     loading,
     error,
-    filter,
+    // filter,
   };
 };

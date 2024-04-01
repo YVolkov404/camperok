@@ -6,19 +6,18 @@ axios.defaults.baseURL = `https://659f38755023b02bfe895970.mockapi.io`;
 // url.searchParams.append('page', 1);
 // url.searchParams.append('limit', 4);
 
-const params = {
-  headers: { 'content-type': 'application/json' },
-  params: {
-    page: 1,
-    limit: 4,
-  },
-};
-
 export const getOffersResponse = createAsyncThunk(
   'offer/getOffersResponse',
-  async (_, thunkAPI) => {
+  async ({ limit, filter }, thunkAPI) => {
     try {
-      const response = await axios.get(`/adverts`, params);
+      const response = await axios.get(`/adverts`, {
+        headers: { 'content-type': 'application/json' },
+        params: {
+          page: 1,
+          limit: `${limit}`,
+          filter: `${filter}`,
+        },
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

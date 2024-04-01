@@ -11,11 +11,11 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { catalog } from '../redux/slice';
-import { filteredQuery } from '../redux/filter';
+// import { filteredQuery } from '../redux/filter';
 
 const rootReducer = combineReducers({
   offer: catalog,
-  filter: filteredQuery,
+  // filter: filteredQuery,
 });
 
 const persistConfig = {

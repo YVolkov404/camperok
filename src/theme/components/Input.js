@@ -15,6 +15,7 @@ const custom = definePartsStyle({
     border: 'none',
     backgroundColor: '#f7f7f7',
     borderRadius: '10px',
+
     _placeholder: {
       color: 'rgba(16, 24, 40, 0.6)',
     },

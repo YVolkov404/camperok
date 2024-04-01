@@ -4,7 +4,6 @@ import {
   CardBody,
   CardFooter,
   Image,
-  Button,
   // Tag,
   // TagLabel,
   // TagLeftIcon,
@@ -16,11 +15,14 @@ import {
 } from '@chakra-ui/react';
 
 import { Icon } from '@iconify/react';
-import { filteredOffers } from 'hooks/FilterHook';
-import { useSelector } from 'react-redux';
+// import { filteredOffers } from 'hooks/FilterHook';
+// import { useSelector } from 'react-redux';
+import { useData } from '../redux/selectors';
 
 export const CardStack = () => {
-  const offercart = useSelector(filteredOffers);
+  const { offercart } = useData();
+
+  console.log(offercart);
 
   return (
     <VStack spacing={8}>
