@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcamperok=self.webpackChunkcamperok||[]).push([[288],{4288:function(n,e,r){r.r(e),r.d(e,{default:function(){return u}});var c=r(184),t=function(){return(0,c.jsx)(c.Fragment,{children:(0,c.jsx)("div",{children:"Home"})})};var u=function(){return(0,c.jsx)(c.Fragment,{children:(0,c.jsx)(t,{})})}}}]);
-//# sourceMappingURL=288.72dbfe02.chunk.js.map
