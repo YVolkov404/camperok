@@ -6,7 +6,11 @@ const baseStyle = defineStyle({
 });
 
 const sizes = {
-  lg: defineStyle({
+  xl: defineStyle({
+    fontSize: 'xl',
+    lineHeight: '1.2',
+  }),
+  '2xl': defineStyle({
     fontSize: '2xl',
     lineHeight: '1.25',
   }),
@@ -16,6 +20,6 @@ export const Heading = defineStyleConfig({
   baseStyle,
   sizes,
   defaultProps: {
-    size: 'lg',
+    size: '2xl',
   },
 });
