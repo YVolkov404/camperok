@@ -11,7 +11,7 @@ import {
   useRadioGroup,
   useToast,
 } from '@chakra-ui/react';
-import { radioBtn1, radioBtn2, radioBtn3 } from './Icon';
+import { radioBtn1, radioBtn2, radioBtn3 } from './Icons';
 
 const data = [
   { id: 1, text: 'Van', icon: radioBtn1 },
@@ -39,7 +39,7 @@ export const TypeFilter = () => {
         >
           <Icon {...getLabelProps()} as={src} boxSize={12} height="100%" />
           <Text textAlign="center" lineHeight="1.25">
-            {props.value}
+            {text}
           </Text>
         </VStack>
       </chakra.label>

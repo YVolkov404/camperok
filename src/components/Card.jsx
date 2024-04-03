@@ -22,8 +22,6 @@ import { useData } from '../redux/selectors';
 export const CardStack = () => {
   const { offercart } = useData();
 
-  console.log(offercart);
-
   return (
     <VStack spacing={8}>
       {offercart.map(

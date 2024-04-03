@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getOffersResponse } from 'services/api';
 //------------------------------
-import { Button, Stack, VStack } from '@chakra-ui/react';
+import { Button, Stack, Text, VStack } from '@chakra-ui/react';
 //------------------------------
 import { CardStack } from './Card';
 import { SearchBar } from './SearchBar';
+import { EquipFilter } from './EquipFilter';
 import { TypeFilter } from './TypeFilter';
 import { ModalLayout } from './Modal/ModalLayout';
 
@@ -26,9 +27,16 @@ export const Catalog = () => {
   return (
     <>
       <Stack flexDir="row" spacing={16}>
-        <VStack spacing={8}>
+        <VStack align="flex-start" spacing={8}>
           <SearchBar filter={filter} handleChange={handleChange} />
-          <TypeFilter />
+          <Stack spacing={3}>
+            <Text color="#476467">Filters</Text>
+            <Stack spacing={8}>
+              <EquipFilter />
+              <TypeFilter />
+            </Stack>
+          </Stack>
+          <Button variant="solid">Search</Button>
         </VStack>
         <VStack spacing={50}>
           <CardStack />

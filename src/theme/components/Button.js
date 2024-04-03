@@ -32,9 +32,29 @@ const outline = defineStyle({
   },
 });
 
+const solid = defineStyle({
+  w: '173px',
+  h: '56px',
+  mt: '32px',
+
+  bg: '#e44848',
+  borderRadius: '200px',
+  borderColor: 'transparent',
+
+  color: '#fff',
+  fontFamily: 'Inter, sans-serif',
+  fontWeight: 'medium',
+  letterSpacing: '-0.08px',
+
+  _hover: {
+    bg: '#d84343',
+  },
+});
+
 const variants = {
   unstyled,
   outline,
+  solid,
 };
 
 const sizes = {
