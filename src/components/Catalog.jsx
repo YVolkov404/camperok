@@ -13,16 +13,19 @@ import { ModalLayout } from './Modal/ModalLayout';
 export const Catalog = () => {
   const [limit, setLimit] = useState(4);
   const [filter, setFilter] = useState('');
+  const [form, setForm] = useState('');
 
   const dispatch = useDispatch();
 
-  dispatch(getOffersResponse({ limit, filter }));
+  dispatch(getOffersResponse({ limit, filter, form }));
 
   const paginationHandler = () => {
     setLimit(prevLimit => prevLimit + 4);
   };
 
   const handleChange = e => setFilter(e.target.value);
+
+  const handleSubmit = e => setForm(e.target.value);
 
   return (
     <>
@@ -33,10 +36,12 @@ export const Catalog = () => {
             <Text color="#476467">Filters</Text>
             <Stack spacing={8}>
               <EquipFilter />
-              <TypeFilter />
+              <TypeFilter form={form} onSubmit={handleSubmit} />
             </Stack>
           </Stack>
-          <Button variant="solid">Search</Button>
+          <Button type="submit" variant="solid">
+            Search
+          </Button>
         </VStack>
         <VStack spacing={50}>
           <CardStack />

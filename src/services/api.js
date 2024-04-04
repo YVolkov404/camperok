@@ -8,7 +8,7 @@ axios.defaults.baseURL = `https://659f38755023b02bfe895970.mockapi.io`;
 
 export const getOffersResponse = createAsyncThunk(
   'offer/getOffersResponse',
-  async ({ limit, filter }, thunkAPI) => {
+  async ({ limit, filter, form }, thunkAPI) => {
     try {
       const response = await axios.get(`/adverts`, {
         headers: { 'content-type': 'application/json' },
@@ -16,6 +16,7 @@ export const getOffersResponse = createAsyncThunk(
           page: 1,
           limit: `${limit}`,
           filter: `${filter}`,
+          form: `${form}`,
         },
       });
       return response.data;
