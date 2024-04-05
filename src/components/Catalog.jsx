@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getOffersResponse } from 'services/api';
 //------------------------------
-import { Button, Stack, Text, VStack } from '@chakra-ui/react';
+import { Button, Stack, Text, VStack, FormControl } from '@chakra-ui/react';
 //------------------------------
 import { CardStack } from './Card';
 import { SearchBar } from './SearchBar';
@@ -12,31 +12,34 @@ import { ModalLayout } from './Modal/ModalLayout';
 
 export const Catalog = () => {
   const [limit, setLimit] = useState(4);
-  const [filter, setFilter] = useState('');
+  const [location, setLocation] = useState('');
   const [form, setForm] = useState('');
 
   const dispatch = useDispatch();
 
-  dispatch(getOffersResponse({ limit, filter, form }));
+  dispatch(getOffersResponse({ limit, location, form }));
 
   const paginationHandler = () => {
     setLimit(prevLimit => prevLimit + 4);
   };
 
-  const handleChange = e => setFilter(e.target.value);
+  const handleChangeLocation = e => setLocation(e.target.value);
 
-  const handleSubmit = e => setForm(e.target.value);
+  const handleChangeForm = e => setForm(e.target.value);
 
   return (
     <>
       <Stack flexDir="row" spacing={16}>
         <VStack align="flex-start" spacing={8}>
-          <SearchBar filter={filter} handleChange={handleChange} />
+          <SearchBar
+            location={location}
+            handleChangeLocation={handleChangeLocation}
+          />
           <Stack spacing={3}>
             <Text color="#476467">Filters</Text>
             <Stack spacing={8}>
               <EquipFilter />
-              <TypeFilter form={form} onSubmit={handleSubmit} />
+              <TypeFilter form={form} handleChangeForm={handleChangeForm} />
             </Stack>
           </Stack>
           <Button type="submit" variant="solid">

@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { Icon } from '@iconify/react';
 
-export const SearchBar = ({ filter, handleChange }) => {
+export const SearchBar = ({ location, handleChangeLocation }) => {
   return (
     <FormControl as="form">
       <FormLabel>Location</FormLabel>
@@ -18,8 +18,8 @@ export const SearchBar = ({ filter, handleChange }) => {
         <Input
           name="filter"
           type="text"
-          value={filter}
-          onChange={handleChange}
+          value={location}
+          onChange={handleChangeLocation}
           placeholder="City"
           variant="custom"
         />
