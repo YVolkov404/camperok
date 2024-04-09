@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getOffersResponse } from 'services/api';
 //------------------------------
-import { Button, Stack, Text, VStack, FormControl } from '@chakra-ui/react';
+import { Button, Stack, Text, VStack } from '@chakra-ui/react';
 //------------------------------
 import { CardStack } from './Card';
 import { SearchBar } from './SearchBar';

@@ -4,9 +4,10 @@ import {
   CardBody,
   CardFooter,
   Image,
-  // Tag,
-  // TagLabel,
-  // TagLeftIcon,
+  Flex,
+  Tag,
+  TagLabel,
+  TagLeftIcon,
   HStack,
   VStack,
   Text,
@@ -15,9 +16,36 @@ import {
 } from '@chakra-ui/react';
 
 import { Icon } from '@iconify/react';
+import {
+  adults,
+  tv,
+  beds,
+  shower,
+  kitchen,
+  automatic,
+  petrol,
+  ac,
+  route,
+  freezer,
+} from './Icons';
+
 // import { filteredOffers } from 'hooks/FilterHook';
 // import { useSelector } from 'react-redux';
+
 import { useData } from '../redux/selectors';
+
+const data = [
+  { id: 1, text: 'adults', icon: adults },
+  { id: 2, text: 'Automatic', icon: automatic },
+  { id: 3, text: 'Petrol', icon: petrol },
+  { id: 4, text: 'Kitchen', icon: kitchen },
+  { id: 5, text: 'beds', icon: beds },
+  { id: 6, text: 'AC', icon: ac },
+  { id: 7, text: 'Shower/WS', icon: shower },
+  { id: 8, text: 'TV', icon: tv },
+  { id: 9, text: 'Route', icon: route },
+  { id: 10, text: 'Freezer', icon: freezer },
+];
 
 export const CardStack = () => {
   const { offercart } = useData();
@@ -34,6 +62,7 @@ export const CardStack = () => {
           location,
           description,
           reviews,
+          adults,
         }) => {
           return (
             <Card key={_id}>
@@ -63,12 +92,11 @@ export const CardStack = () => {
                               <Icon
                                 icon="mdi:heart-outline"
                                 fontSize={24}
-                                color="#e44848"
+                                color="#101828"
                               />
                             }
                             size="xs"
                             variant="unstyled"
-                            isActive
                           />
                         </HStack>
                       </HStack>
@@ -91,7 +119,22 @@ export const CardStack = () => {
                     </VStack>
                   </CardHeader>
                   <CardBody>
-                    <Text variant="selected">{description}</Text>
+                    <VStack spacing={6}>
+                      <Text variant="selected">{description}</Text>
+                      <Flex gap={2} wrap="wrap">
+                        {data.map(({ id, text, icon }) => (
+                          <Tag key={id} variant="subtle" rounded="full">
+                            <TagLeftIcon boxSize={5} as={icon} />
+                            <TagLabel>
+                              {console.log(Object.hasOwn(offercart, adults)) ===
+                              text
+                                ? adults + text
+                                : text}
+                            </TagLabel>
+                          </Tag>
+                        ))}
+                      </Flex>
+                    </VStack>
                   </CardBody>
                   <CardFooter></CardFooter>
                 </VStack>
@@ -103,14 +146,3 @@ export const CardStack = () => {
     </VStack>
   );
 };
-
-// {
-//   data.map(({ id, details }) => {
-//     return (
-//       <Tag key={id} size="md" variant="subtle">
-//         <TagLeftIcon boxSize="12px" set=<Icon scr="" /> />
-//         <TagLabel>{details}</TagLabel>
-//       </Tag>
-//     );
-//   });
-// }

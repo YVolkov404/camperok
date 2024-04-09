@@ -19,7 +19,6 @@ const styles = extendTheme({
         display: 'inline-flex',
         alignSelf: 'center',
         color: '#475467',
-        textDecoration: 'underline',
       },
       colors: {
         brand: {

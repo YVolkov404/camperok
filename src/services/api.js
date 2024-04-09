@@ -2,7 +2,9 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 // import URLSearchParams from 'url-search-params';
 
-axios.defaults.baseURL = `https://659f38755023b02bfe895970.mockapi.io`;
+const API_KEY = '659f38755023b02bfe895970';
+
+axios.defaults.baseURL = `https://${API_KEY}.mockapi.io`;
 // url.searchParams.append('page', 1);
 // url.searchParams.append('limit', 4);
 
